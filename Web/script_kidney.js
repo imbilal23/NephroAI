@@ -8,7 +8,7 @@
    CONFIG
    ============================================================ */
 const CONFIG = {
-  API_BASE_URL: 'http://127.0.0.1:5000',            // Set to your backend base URL, e.g. 'https://api.cardioairuby.ai'
+  API_BASE_URL: '',            // Set to your backend base URL, e.g. 'https://api.cardioairuby.ai'
   API_ENDPOINT: '/api/kidney-analyze',
   REQUEST_TIMEOUT_MS: 15000,   // 15s timeout
   MAX_RETRIES: 2,
