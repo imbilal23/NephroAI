@@ -27,13 +27,18 @@ FEATURE_ORDER = [
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODELS_DIR = os.path.join(BASE_DIR, 'Models')
 
+# Initialize to None so we can detect load failures gracefully
+imputer_scaler = None
+imputer = None
+model = None
+
 try:
     loaded_imputer = joblib.load(os.path.join(MODELS_DIR, 'imputer_scaler.pkl'))
-    imputer_scaler = loaded_imputer['imputer_scaler']
-    imputer = loaded_imputer['knn_imputer']
+    imputer_scaler = loaded_imputer['imputer_scaler'] if isinstance(loaded_imputer, dict) else loaded_imputer
+    imputer = loaded_imputer['knn_imputer'] if isinstance(loaded_imputer, dict) else loaded_imputer
     
     loaded_model = joblib.load(os.path.join(MODELS_DIR, 'Voting.pkl'))
-    model = loaded_model['model']
+    model = loaded_model['model'] if isinstance(loaded_model, dict) else loaded_model
     
     print("SUCCESS: All models loaded successfully.")
 except Exception as e:
@@ -123,7 +128,7 @@ def index():
 @app.route('/api/kidney-analyze', methods=['POST'])
 def analyze():
     try:
-        # ensure models loaded successfully at startup
+        # Guard: ensure models loaded successfully at startup
         if model is None or imputer is None or imputer_scaler is None:
             return jsonify({'error': 'ML models failed to load. Check server logs for scikit-learn version compatibility.'}), 503
 
