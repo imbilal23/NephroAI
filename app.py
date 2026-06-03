@@ -27,6 +27,11 @@ FEATURE_ORDER = [
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 MODELS_DIR = os.path.join(BASE_DIR, 'Models')
 
+# Initialize to None so we can detect load failures gracefully
+imputer_scaler = None
+imputer = None
+model = None
+
 try:
     loaded_imputer = joblib.load(os.path.join(MODELS_DIR, 'imputer_scaler.pkl'))
     imputer_scaler = loaded_imputer['imputer_scaler'] if isinstance(loaded_imputer, dict) else loaded_imputer
@@ -37,6 +42,8 @@ try:
     
     print("SUCCESS: All models loaded successfully.")
 except Exception as e:
+    import traceback
+    traceback.print_exc()
     print(f"ERROR: Error loading models: {e}")
 
 
@@ -121,6 +128,10 @@ def index():
 @app.route('/api/kidney-analyze', methods=['POST'])
 def analyze():
     try:
+        # ensure models loaded successfully at startup
+        if model is None or imputer is None or imputer_scaler is None:
+            return jsonify({'error': 'ML models failed to load. Check server logs for scikit-learn version compatibility.'}), 503
+
         data = request.json
         
         # A. Validate Required Features
