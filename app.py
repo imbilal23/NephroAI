@@ -125,6 +125,17 @@ def get_assessment(prediction, probability, data):
 def index():
     return render_template('index_kidney.html')
 
+@app.route('/api/health')
+def health():
+    """Health check endpoint to verify model loading status on Vercel."""
+    return jsonify({
+        'status': 'ok' if model is not None else 'models_failed',
+        'sklearn_version': sklearn.__version__,
+        'model_loaded': model is not None,
+        'imputer_loaded': imputer is not None,
+        'imputer_scaler_loaded': imputer_scaler is not None,
+    })
+
 @app.route('/api/kidney-analyze', methods=['POST'])
 def analyze():
     try:
