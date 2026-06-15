@@ -802,7 +802,6 @@ function initAnalysisForm() {
         await sleep(1800);
         result = getMockResponse(patientData);
       }
-      result = await analyzeKidneyData(patientData);
 
       displayResults(result);
 
