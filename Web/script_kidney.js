@@ -795,6 +795,13 @@ function initAnalysisForm() {
       let result;
 
       // Use real API if base URL is configured, otherwise use mock
+       if (CONFIG.API_BASE_URL) {
+        result = await analyzeKidneyData(patientData);
+      } else {
+        // Demo mode: simulate network latency + return mock result
+        await sleep(1800);
+        result = getMockResponse(patientData);
+      }
       result = await analyzeKidneyData(patientData);
 
       displayResults(result);
