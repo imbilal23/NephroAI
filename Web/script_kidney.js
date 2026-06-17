@@ -8,7 +8,7 @@
    CONFIG
    ============================================================ */
 const CONFIG = {
-  API_BASE_URL: 'https://nephro-ai-taupe.vercel.app',
+  API_BASE_URL: '',
   API_ENDPOINT: '/api/kidney-analyze',
   REQUEST_TIMEOUT_MS: 15000,   // 15s timeout
   MAX_RETRIES: 2,
