@@ -2,7 +2,7 @@
 
 NephroAI is a Machine Learning-powered web application designed to predict **Chronic Kidney Disease (CKD)** using routine clinical laboratory data. The system uses an ensemble of advanced machine learning models combined through a **Voting Classifier** to provide highly accurate and reliable predictions.
 
-🌐 Live Application: https://nephro-ai-taupe.vercel.app
+🌐 Live Application: [https://nephro-ai-taupe.vercel.app](https://nephroai-production-8313.up.railway.app/)
 
 ---
 
@@ -163,7 +163,7 @@ These align strongly with established nephrology knowledge.
 - Seaborn
 
 ## Deployment
-- Vercel
+- Railway
 - JavaScript Frontend
 
 ## Model Serialization
@@ -214,10 +214,10 @@ for:
 # 🌐 Deployment
 
 Live Application:
-https://nephro-ai-taupe.vercel.app
+https://nephroai-production-8313.up.railway.app
 
 Deployment Platform:
-- Vercel
+- Railway
 
 ---
 
