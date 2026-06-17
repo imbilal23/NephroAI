@@ -7,10 +7,8 @@ from sklearn.exceptions import InconsistentVersionWarning
 warnings.filterwarnings("ignore", category=InconsistentVersionWarning)
 
 from flask import Flask, request, jsonify, render_template
-from flask_cors import CORS
 
 app = Flask(__name__, static_folder='Web', template_folder='Web', static_url_path='')
-CORS(app)
 
 # 1. Configuration & Features
 REQUIRED_FEATURES = ["sg", "hemo", "sc", "al", "htn", "dm", "age", "bp", "su", "bgr", "bu", "sod", "pot", "pcv", "rbcc"]
