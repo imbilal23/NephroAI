@@ -234,11 +234,9 @@ Deployment Platform:
 
 # 👨‍💻 Author
 
-**Muhammad Bilal**
-**Muhammad Zubair**
+**Muhammad Bilal**, **Muhammad Zubair**
 
-GitHub: https://github.com/imbilal23
-GitHub: https://github.com/zubair-fakhar
+GitHub: https://github.com/imbilal23, https://github.com/zubair-fakhar
 
 ---
 
