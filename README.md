@@ -229,3 +229,17 @@ Deployment Platform:
 - Binary classification only
 
 ---
+
+---
+
+# 👨‍💻 Author
+
+**Muhammad Bilal**
+**Muhammad Zubair**
+
+GitHub: https://github.com/imbilal23
+GitHub: https://github.com/zubair-fakhar
+
+---
+
+If you found this project useful, consider giving it a ⭐ on GitHub.
